@@ -2,7 +2,7 @@ from bot import Bot
 import pyrogram.utils
 from flask import Flask
 from threading import Thread
-from config import PORT
+import os
 
 pyrogram.utils.MIN_CHANNEL_ID = -1009147483647
 
@@ -13,8 +13,9 @@ def hello_world():
     return 'UNRATED CODER FileStore'
 
 def run():
-    app.run(host="0.0.0.0", port=int(PORT))
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
 
 if __name__ == "__main__":
-    Thread(target=run).start()
+    Thread(target=run, daemon=True).start()
     Bot().run()

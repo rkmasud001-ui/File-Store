@@ -10,6 +10,7 @@ motor
 dnspython
 # --- For-Web-Response ------- #
 flask
+gunicorn
 python-dotenv
 # --- For-Web-Response ------- #
 pytz
