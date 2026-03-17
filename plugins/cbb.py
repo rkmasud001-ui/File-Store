@@ -33,11 +33,11 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             text=START_MSG.format(first=query.from_user.first_name),
             disable_web_page_preview=True,
             reply_markup = InlineKeyboardMarkup([
-                [InlineKeyboardButton('Aɴɪᴍᴇs', url='https://t.me/Hindi_Dub_Anime_Zone'),
-                InlineKeyboardButton('Bᴀsᴇ', url='https://t.me/AniReal_Anime_Zone')],
+                [InlineKeyboardButton('Aɴɪᴍᴇs', url='https://t.me/UNRATED_CODER'),
+                InlineKeyboardButton('Bᴀsᴇ', url='https://t.me/UNRATED_CODER')],
                 [InlineKeyboardButton('• ᴀʙᴏᴜᴛ', callback_data='about'),
                 InlineKeyboardButton(' ʜᴇʟᴘ •', callback_data='help')],
-                [InlineKeyboardButton("Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url='https://t.me/AniReal_Updates')]
+                [InlineKeyboardButton("Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER')]
             ])
         )
 

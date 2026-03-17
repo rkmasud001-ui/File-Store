@@ -28,8 +28,8 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/fdc4357abfaba232
 #--------------------------------------------
 
 #--------------------------------------------
-HELP_TXT = "<b><blockquote>⚡ This is a <u>Private Premium Bot</u> – Only admins & management can operate it.\n🔐 To get the bot link and access its features, join our mentioned channel and click the direct link provided.\n🎯 This bot is exclusively for <b>VIP & special users</b>, giving you instant file access securely and privately!</blockquote></b>\n\n<b>•Join Our Main Channrl: @AniReal_Anime_Zone\nFore More Information Use /help</b>"
-ABOUT_TXT = "<b>🤖 Kaoruko Waguri Bot - About</b>\n\n<b><blockquote>💡 Bot Status: <code>Online 24/7</code>\n🚀 Features: Instant Anime & File Access, Special Channel Links.\n🔗 Access: Get files directly via special links.\n⚡ Uptime: Always active for your convenience.\n🌐 Channels: Join to explore more anime content.</blockquote></b>\n<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/AniReal_Support">Eʀᴇɴ Yᴇᴀɢᴇʀ</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/AniReal_Anime_Zone">AniReal - Anime Zone</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/AniReal_Team">AniReal - Team</a></blockquote></b>"
+HELP_TXT = "<b><blockquote>⚡ This is a <u>Private Premium Bot</u> – Only admins & management can operate it.\n🔐 To get the bot link and access its features, join our mentioned channel and click the direct link provided.\n🎯 This bot is exclusively for <b>VIP & special users</b>, giving you instant file access securely and privately!</blockquote></b>\n\n<b>•Join Our Main Channel: @UNRATED_CODER\nFore More Information Use /help</b>"
+ABOUT_TXT = "<b>🤖 Kaoruko Waguri Bot - About</b>\n\n<b><blockquote>💡 Bot Status: <code>Online 24/7</code>\n🚀 Features: Instant Anime & File Access, Special Channel Links.\n🔗 Access: Get files directly via special links.\n⚡ Uptime: Always active for your convenience.\n🌐 Channels: Join to explore more anime content.</blockquote></b>\n<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"
 #--------------------------------------------
 #--------------------------------------------
 START_MSG = os.environ.get("START_MESSAGE", "<b>💖 Hᴇʟʟᴏ {first}!🥀\n\n<blockquote>I ᴀᴍ Kaoruko Waguri ✨ Your Personal Anime & File Access Bot🚀 I ᴄᴀɴ sᴀᴠᴇ ᴘʀɪᴠᴀᴛᴇ ғɪʟᴇs ɪɴ ᴄʜᴀɴɴᴇʟs🔗 & Gɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇss via a Special Link</blockquote>\n<blockquote>🔰 Check Out Our Channels & Get Files Instantly! 🔰</blockquote></b>")
@@ -53,7 +53,7 @@ CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b></blockqu
 <b>›› /admins :</b> ɢᴇᴛ ʟɪsᴛ ᴏꜰ ᴀᴅᴍɪɴs
 """
 #--------------------------------------------
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @AniReal_Anime_Zone</b>") #set your Custom Caption here, Keep None for Disable Custom Caption
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @UNRATED_CODER</b>") #set your Custom Caption here, Keep None for Disable Custom Caption
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False #set True if you want to prevent users from forwarding files from bot
 #--------------------------------------------
 #Set true if you want Disable your Channel Posts Share button

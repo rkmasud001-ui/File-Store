@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Codeflix FileStore'
+    return 'UNRATED CODER FileStore'
 
 def run():
     app.run(host="0.0.0.0", port=int(PORT))

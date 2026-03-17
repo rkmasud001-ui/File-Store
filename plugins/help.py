@@ -68,11 +68,11 @@ async def help_command(client: Client, message: Message):
 reply_markup=InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/AniReal_Support"),
-            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/AniReal_Chat_Group_Asia")
+            InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER"),
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER")
         ],
         [
-            InlineKeyboardButton("• Jᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/AniReal_Network")
+            InlineKeyboardButton("• Jᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER")
         ],
     ]
 ),
