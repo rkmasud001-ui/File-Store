@@ -1,18 +1,18 @@
 import os
-from os import environ,getenv
+from os import environ, getenv
 import logging
 from logging.handlers import RotatingFileHandler
 
 #--------------------------------------------
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", "")) #Your API ID from my.telegram.org
+APP_ID = int(os.environ.get("APP_ID", "0")) # Khali hone par crash na ho isliye "0" default diya
 API_HASH = os.environ.get("API_HASH", "") #Your API Hash from my.telegram.org
 #--------------------------------------------
 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "")) #Your db channel Id
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0")) # Khali hone par crash na ho isliye "0" default diya
 OWNER = os.environ.get("OWNER", "") # Owner username without @
-OWNER_ID = int(os.environ.get("OWNER_ID", "")) # Owner id
+OWNER_ID = int(os.environ.get("OWNER_ID", "0")) # Owner id
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
 #--------------------------------------------
@@ -29,7 +29,16 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/fdc4357abfaba232
 
 #--------------------------------------------
 HELP_TXT = "<b><blockquote>⚡ This is a <u>Private Premium Bot</u> – Only admins & management can operate it.\n🔐 To get the bot link and access its features, join our mentioned channel and click the direct link provided.\n🎯 This bot is exclusively for <b>VIP & special users</b>, giving you instant file access securely and privately!</blockquote></b>\n\n<b>•Join Our Main Channel: @UNRATED_CODER\nFore More Information Use /help</b>"
-ABOUT_TXT = """<b>🤖 Kaoruko Waguri Bot - About</b>\n\n<b><blockquote>💡 Bot Status: <code>Online 24/7</code>\n🚀 Features: Instant Anime & File Access, Special Channel Links.\n🔗 Access: Get files directly via special links.\n⚡ Uptime: Always active for your convenience.\n🌐 Channels: Join to explore more anime content.</blockquote></b>\n<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
+
+# Isko clean kar diya hai taaki line breaks sahi se aayein
+ABOUT_TXT = """<b>🤖 Kaoruko Waguri Bot - About</b>
+
+<b><blockquote>💡 Bot Status: <code>Online 24/7</code>
+🚀 Features: Instant Anime & File Access, Special Channel Links.
+🔗 Access: Get files directly via special links.
+⚡ Uptime: Always active for your convenience.
+🌐 Channels: Join to explore more anime content.</blockquote></b>
+<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
 #--------------------------------------------
 #--------------------------------------------
 START_MSG = os.environ.get("START_MESSAGE", "<b>💖 Hᴇʟʟᴏ {first}!🥀\n\n<blockquote>I ᴀᴍ Kaoruko Waguri ✨ Your Personal Anime & File Access Bot🚀 I ᴄᴀɴ sᴀᴠᴇ ᴘʀɪᴠᴀᴛᴇ ғɪʟᴇs ɪɴ ᴄʜᴀɴɴᴇʟs🔗 & Gɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇss via a Special Link</blockquote>\n<blockquote>🔰 Check Out Our Channels & Get Files Instantly! 🔰</blockquote></b>")
@@ -37,8 +46,8 @@ FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "<b>🚨 Please Join Our Channel
 
 CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b></blockquote>
 
-<b>›› /dlt_time :</b> sᴇᴛ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇ
-<b>›› /check_dlt_time :</b> ᴄʜᴇᴄᴋ ᴄᴜʀʀᴇɴᴛ ᴅᴇʟᴇᴛᴇ ᴛɪᴍᴇ
+<b>›› /dlt_time :</b> sᴇᴛ ᴀᴜᴛᴏ ᴅᴇʟᴇᴛе ᴛɪᴍᴇ
+<b>›› /check_dlt_time :</b> ᴄʜᴇᴄᴋ ᴄᴜʀʀᴇɴᴛ ᴅᴇʟᴇᴛе ᴛɪᴍᴇ
 <b>›› /dbroadcast :</b> ʙʀᴏᴀᴅᴄᴀsᴛ ᴅᴏᴄᴜᴍᴇɴᴛ / ᴠɪᴅᴇᴏ
 <b>›› /ban :</b> ʙᴀɴ ᴀ ᴜꜱᴇʀ
 <b>›› /unban :</b> ᴜɴʙᴀɴ ᴀ ᴜꜱᴇʀ
@@ -53,17 +62,15 @@ CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b></blockqu
 <b>›› /admins :</b> ɢᴇᴛ ʟɪsᴛ ᴏꜰ ᴀᴅᴍɪɴs
 """
 #--------------------------------------------
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @UNRATED_CODER</b>") #set your Custom Caption here, Keep None for Disable Custom Caption
-PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False #set True if you want to prevent users from forwarding files from bot
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @UNRATED_CODER</b>") 
+PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False 
 #--------------------------------------------
-#Set true if you want Disable your Channel Posts Share button
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
 #--------------------------------------------
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<b>ʙᴀᴋᴋᴀ ! ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴍʏ ꜱᴇɴᴘᴀɪ!!</b>"
 USER_ROAST_TEXT = "<b>ᴡʜᴏ ᴀʀᴇ ʏᴏᴜ ᴛᴏ ʙᴀɴ ᴀɴʏᴏɴᴇ? Kɴᴏᴡ ʏᴏᴜʀ ᴘʟᴀᴄᴇ ғɪʀsᴛ.</b>"
 #--------------------------------------------
-
 
 LOG_FILE_NAME = "filesharingbot.txt"
 
@@ -82,7 +89,5 @@ logging.basicConfig(
 )
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-
 def LOGGER(name: str) -> logging.Logger:
     return logging.getLogger(name)
-   
