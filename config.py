@@ -6,17 +6,26 @@ from logging.handlers import RotatingFileHandler
 #--------------------------------------------
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", "0")) # Khali hone par crash na ho isliye "0" default diya
-API_HASH = os.environ.get("API_HASH", "") #Your API Hash from my.telegram.org
+APP_ID = int(os.environ.get("APP_ID", "0"))
+API_HASH = os.environ.get("API_HASH", "")
 #--------------------------------------------
 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0")) # Khali hone par crash na ho isliye "0" default diya
-OWNER = os.environ.get("OWNER", "") # Owner username without @
-OWNER_ID = int(os.environ.get("OWNER_ID", "0")) # Owner id
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
+OWNER = os.environ.get("OWNER", "")
+OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
 #--------------------------------------------
 DB_URI = os.environ.get("DATABASE_URL", "")
+
+if not TG_BOT_TOKEN:
+    logging.warning("TG_BOT_TOKEN is not set!")
+if APP_ID == 0:
+    logging.warning("APP_ID is not set!")
+if not API_HASH:
+    logging.warning("API_HASH is not set!")
+if not DB_URI:
+    logging.warning("DATABASE_URL is not set!")
 DB_NAME = os.environ.get("Filestore", "")
 #--------------------------------------------
 FSUB_LINK_EXPIRY = int(os.getenv("FSUB_LINK_EXPIRY", "10"))  # 0 means no expiry
