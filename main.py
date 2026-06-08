@@ -16,6 +16,19 @@ def run():
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
 
+import traceback
+import time
+from pyrogram.errors import FloodWait
+
 if __name__ == "__main__":
     Thread(target=run, daemon=True).start()
-    Bot().run()
+    while True:
+        try:
+            Bot().run()
+        except FloodWait as e:
+            print(f"FloodWait: {e.x} seconds")
+            time.sleep(e.x)
+        except Exception:
+            print(f"FATAL: Bot crashed at startup")
+            traceback.print_exc()
+            time.sleep(10)
