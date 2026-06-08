@@ -57,6 +57,9 @@ async def start_command(client: Client, message: Message):
         argument = string.split("-")
 
         ids = []
+        if not hasattr(client, "db_channel") or not client.db_channel:
+            return await message.reply_text("<b>Eʀʀᴏʀ:</b> Dᴀᴛᴀʙᴀsᴇ Cʜᴀɴɴᴇʟ ɴᴏᴛ ᴄᴏɴғɪɢᴜʀᴇᴅ ᴘʀᴏᴘᴇʀʟʏ!")
+
         if len(argument) == 3:
             try:
                 start = int(int(argument[1]) / abs(client.db_channel.id))

@@ -18,11 +18,4 @@ def run():
 
 if __name__ == "__main__":
     Thread(target=run, daemon=True).start()
-    try:
-        Bot().run()
-    except Exception as e:
-        print(f"Error starting bot: {e}")
-        # Keep the main thread alive so the Flask thread continues to run
-        import time
-        while True:
-            time.sleep(3600)
+    Bot().run()

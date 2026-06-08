@@ -1,6 +1,9 @@
 import os
 from os import environ, getenv
 import logging
+from dotenv import load_dotenv
+
+load_dotenv()
 from logging.handlers import RotatingFileHandler
 
 #--------------------------------------------
