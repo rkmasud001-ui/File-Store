@@ -7,7 +7,7 @@ from pyrogram.enums import ParseMode
 
 HELP_IMAGE_URL = "https://graph.org/file/927bf2751b931e2496aed-0dbc57797e8526bad4.jpg"
 
-HELP_TEXT = """<b>🥰 Kon’nichiwa {user_mention}! ~</b>\n\n
+HELP_TEXT = """<b>🥰 Kon’nichiwa {{user_mention}}! ~</b>\n\n
 <blockquote><b>⚔️ I’ᴍ ᴀɴ ᴀɴɪᴍᴇ-ᴛʜᴇᴍᴇᴅ ғɪʟᴇ ʙᴏᴛ 🎥\n
 Bᴏʀɴ ɪɴ ᴛʜᴇ ʀᴇᴀʟᴍ ᴏғ ᴅᴀᴛᴀ ᴀɴᴅ ᴄᴏᴅᴇ, I sᴇʀᴠᴇ ᴛᴏ ᴅᴇʟɪᴠᴇʀ sᴘᴇᴄɪᴀʟ ᴀɴɪᴍᴇ ғɪʟᴇs ᴛᴏ ᴛʜᴇ ᴡᴏʀᴛʜʏ ⚡\n\n
 💮 Tᴏ ᴀᴄᴄᴇss ᴍʏ sᴇᴄʀᴇᴛ ᴀʀᴄʜɪᴠᴇs, ʏᴏᴜ ᴍᴜsᴛ ᴊᴏɪɴ ᴀʟʟ ᴛʜᴇ ᴀʟʟɪᴇᴅ ᴄʜᴀɴɴᴇʟs 🎯\n
@@ -50,6 +50,9 @@ Just follow our simple step-by-step tutorial to understand everything easily.</b
 async def help_command(client: Client, message: Message):
     user_mention = f"<a href='tg://user?id={message.from_user.id}'>➣ {message.from_user.first_name}</a>"
 
+    # Check if user is the owner or admin for better help display (optional but good)
+    # is_admin = (message.from_user.id == OWNER_ID) or await db.admin_exist(message.from_user.id)
+
     # Step 1: Loading animation
     loading = await message.reply_text("Loading!")
     for dots in ["!!", "!!!", "!!!!", "!!!!!"]:
@@ -64,7 +67,7 @@ async def help_command(client: Client, message: Message):
     await client.send_photo(
         chat_id=message.chat.id,
         photo=HELP_IMAGE_URL,
-        caption=HELP_TEXT.format(user_mention=user_mention),
+        caption=HELP_TEXT.replace("{{user_mention}}", user_mention),
 reply_markup=InlineKeyboardMarkup(
     [
         [

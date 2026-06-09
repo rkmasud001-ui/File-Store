@@ -156,15 +156,16 @@ async def start_command(client: Client, message: Message):
                 [InlineKeyboardButton("Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url='https://t.me/UNRATED_CODER')]
             ]
                     )
+        caption = START_MSG
+        if "{first}" in caption: caption = caption.replace("{first}", message.from_user.first_name or "")
+        if "{last}" in caption: caption = caption.replace("{last}", message.from_user.last_name or "")
+        if "{username}" in caption: caption = caption.replace("{username}", "" if not message.from_user.username else '@' + message.from_user.username)
+        if "{mention}" in caption: caption = caption.replace("{mention}", message.from_user.mention or "")
+        if "{id}" in caption: caption = caption.replace("{id}", str(message.from_user.id))
+
         await message.reply_photo(
             photo=START_PIC,
-            caption=START_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=None if not message.from_user.username else '@' + message.from_user.username,
-                mention=message.from_user.mention,
-                id=message.from_user.id
-            ),
+            caption=caption,
             reply_markup=reply_markup,
             message_effect_id=5104841245755180586)  # 🔥
         
@@ -246,15 +247,16 @@ async def not_joined(client: Client, message: Message):
         except IndexError:
             pass
 
+        caption = FORCE_MSG
+        if "{first}" in caption: caption = caption.replace("{first}", message.from_user.first_name or "")
+        if "{last}" in caption: caption = caption.replace("{last}", message.from_user.last_name or "")
+        if "{username}" in caption: caption = caption.replace("{username}", "" if not message.from_user.username else '@' + message.from_user.username)
+        if "{mention}" in caption: caption = caption.replace("{mention}", message.from_user.mention or "")
+        if "{id}" in caption: caption = caption.replace("{id}", str(message.from_user.id))
+
         await message.reply_photo(
             photo=FORCE_PIC,
-            caption=FORCE_MSG.format(
-                first=message.from_user.first_name,
-                last=message.from_user.last_name,
-                username=None if not message.from_user.username else '@' + message.from_user.username,
-                mention=message.from_user.mention,
-                id=message.from_user.id
-            ),
+            caption=caption,
             reply_markup=InlineKeyboardMarkup(buttons),
         )
 
