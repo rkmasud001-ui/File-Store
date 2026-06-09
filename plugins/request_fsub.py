@@ -122,13 +122,15 @@ async def add_force_sub(client, message):
         except Exception:
             link = f"https://t.me/{chat.username}" if chat.username else f"https://t.me/c/{str(chat.id)[4:]}"
 
-        await db.add_channel(chat_id)
-        return await temp.edit(
-            f"✅ Added Successfully!\n\n"
-            f"<b>Name:</b> <a href='{link}'>{chat.title}</a>\n"
-            f"<b>ID:</b> <code>{chat_id}</code>",
-            disable_web_page_preview=True
-        )
+        if await db.add_channel(chat_id):
+            return await temp.edit(
+                f"✅ Added Successfully!\n\n"
+                f"<b>Name:</b> <a href='{link}'>{chat.title}</a>\n"
+                f"<b>ID:</b> <code>{chat_id}</code>",
+                disable_web_page_preview=True
+            )
+        else:
+            return await temp.edit("❌ Failed to add channel to database. Check if DATABASE_URL is correct.")
 
     except Exception as e:
         return await temp.edit(f"❌ Failed to add chat:\n<code>{chat_id}</code>\n\n<i>{e}</i>")

@@ -12,8 +12,8 @@ from datetime import datetime, timedelta
 from functools import wraps
 
 try:
-    dbclient = pymongo.MongoClient(DB_URI)
-    database = dbclient[DB_NAME]
+    dbclient = pymongo.MongoClient(DB_URI) if DB_URI else None
+    database = dbclient[DB_NAME] if dbclient and DB_NAME else None
 except Exception as e:
     logging.error(f"Error connecting to Pymongo: {e}")
     dbclient = None
@@ -26,8 +26,13 @@ def connection_check(default_return=None):
         @wraps(func)
         async def wrapper(self, *args, **kwargs):
             if not self.database:
+                logging.error(f"Database not connected. Failed to execute {func.__name__}")
                 return default_return
-            return await func(self, *args, **kwargs)
+            try:
+                return await func(self, *args, **kwargs)
+            except Exception as e:
+                logging.error(f"Error in {func.__name__}: {e}")
+                return default_return
         return wrapper
     return decorator
 
@@ -35,8 +40,8 @@ class Rohit:
 
     def __init__(self, DB_URI, DB_NAME):
         try:
-            self.dbclient = motor.motor_asyncio.AsyncIOMotorClient(DB_URI)
-            self.database = self.dbclient[DB_NAME]
+            self.dbclient = motor.motor_asyncio.AsyncIOMotorClient(DB_URI) if DB_URI else None
+            self.database = self.dbclient[DB_NAME] if self.dbclient and DB_NAME else None
         except Exception as e:
             logging.error(f"Error connecting to Motor: {e}")
             self.dbclient = None
@@ -70,10 +75,10 @@ class Rohit:
         found = await self.user_data.find_one({'_id': user_id})
         return bool(found)
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def add_user(self, user_id: int):
         await self.user_data.insert_one({'_id': user_id})
-        return
+        return True
 
     @connection_check(default_return=[])
     async def full_userbase(self):
@@ -81,10 +86,10 @@ class Rohit:
         user_ids = [doc['_id'] for doc in user_docs]
         return user_ids
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def del_user(self, user_id: int):
         await self.user_data.delete_one({'_id': user_id})
-        return
+        return True
 
 
     # ADMIN DATA
@@ -93,17 +98,17 @@ class Rohit:
         found = await self.admins_data.find_one({'_id': admin_id})
         return bool(found)
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def add_admin(self, admin_id: int):
         if not await self.admin_exist(admin_id):
             await self.admins_data.insert_one({'_id': admin_id})
-            return
+        return True
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def del_admin(self, admin_id: int):
         if await self.admin_exist(admin_id):
             await self.admins_data.delete_one({'_id': admin_id})
-            return
+        return True
 
     @connection_check(default_return=[])
     async def get_all_admins(self):
@@ -118,17 +123,17 @@ class Rohit:
         found = await self.banned_user_data.find_one({'_id': user_id})
         return bool(found)
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def add_ban_user(self, user_id: int):
         if not await self.ban_user_exist(user_id):
             await self.banned_user_data.insert_one({'_id': user_id})
-            return
+        return True
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def del_ban_user(self, user_id: int):
         if await self.ban_user_exist(user_id):
             await self.banned_user_data.delete_one({'_id': user_id})
-            return
+        return True
 
     @connection_check(default_return=[])
     async def get_ban_users(self):
@@ -139,13 +144,14 @@ class Rohit:
 
 
     # AUTO DELETE TIMER SETTINGS
-    @connection_check()
+    @connection_check(default_return=False)
     async def set_del_timer(self, value: int):        
         existing = await self.del_timer_data.find_one({})
         if existing:
             await self.del_timer_data.update_one({}, {'$set': {'value': value}})
         else:
             await self.del_timer_data.insert_one({'value': value})
+        return True
 
     @connection_check(default_return=0)
     async def get_del_timer(self):
@@ -161,17 +167,20 @@ class Rohit:
         found = await self.fsub_data.find_one({'_id': channel_id})
         return bool(found)
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def add_channel(self, channel_id: int):
         if not await self.channel_exist(channel_id):
             await self.fsub_data.insert_one({'_id': channel_id})
-            return
+        return True
 
-    @connection_check()
+    @connection_check(default_return=False)
     async def rem_channel(self, channel_id: int):
         if await self.channel_exist(channel_id):
             await self.fsub_data.delete_one({'_id': channel_id})
-            return
+        return True
+
+    async def del_channel(self, channel_id: int):
+        return await self.rem_channel(channel_id)
 
     @connection_check(default_return=[])
     async def show_channels(self):
@@ -187,50 +196,46 @@ class Rohit:
         return data.get("mode", "off") if data else "off"
 
     # Set mode of a channel
-    @connection_check()
+    @connection_check(default_return=False)
     async def set_channel_mode(self, channel_id: int, mode: str):
         await self.fsub_data.update_one(
-            {'_id': channel_id},
+            {'_id': int(channel_id)},
             {'$set': {'mode': mode}},
             upsert=True
         )
+        return True
 
     # REQUEST FORCE-SUB MANAGEMENT
 
     # Add the user to the set of users for a   specific channel
-    @connection_check()
+    @connection_check(default_return=False)
     async def req_user(self, channel_id: int, user_id: int):
-        try:
-            await self.rqst_fsub_Channel_data.update_one(
-                {'_id': int(channel_id)},
-                {'$addToSet': {'user_ids': int(user_id)}},
-                upsert=True
-            )
-        except Exception as e:
-            print(f"[DB ERROR] Failed to add user to request list: {e}")
+        await self.rqst_fsub_Channel_data.update_one(
+            {'_id': int(channel_id)},
+            {'$addToSet': {'user_ids': int(user_id)}},
+            upsert=True
+        )
+        return True
 
 
     # Method 2: Remove a user from the channel set
-    @connection_check()
+    @connection_check(default_return=False)
     async def del_req_user(self, channel_id: int, user_id: int):
         # Remove the user from the set of users for the channel
         await self.rqst_fsub_Channel_data.update_one(
-            {'_id': channel_id}, 
-            {'$pull': {'user_ids': user_id}}
+            {'_id': int(channel_id)},
+            {'$pull': {'user_ids': int(user_id)}}
         )
+        return True
 
     # Check if the user exists in the set of the channel's users
     @connection_check(default_return=False)
     async def req_user_exist(self, channel_id: int, user_id: int):
-        try:
-            found = await self.rqst_fsub_Channel_data.find_one({
-                '_id': int(channel_id),
-                'user_ids': int(user_id)
-            })
-            return bool(found)
-        except Exception as e:
-            print(f"[DB ERROR] Failed to check request list: {e}")
-            return False  
+        found = await self.rqst_fsub_Channel_data.find_one({
+            '_id': int(channel_id),
+            'user_ids': int(user_id)
+        })
+        return bool(found)
 
 
     # Method to check if a channel exists using show_channels
