@@ -32,7 +32,7 @@ if not DB_URI:
 DB_NAME = os.environ.get("Filestore", "")
 #--------------------------------------------
 FSUB_LINK_EXPIRY = int(os.getenv("FSUB_LINK_EXPIRY", "10"))  # 0 means no expiry
-BAN_SUPPORT = os.environ.get("BAN_SUPPORT", "https://t.me/AniReal_Chat_Group_Asia")
+BAN_SUPPORT = os.environ.get("BAN_SUPPORT", "https://t.me/ZoroAnimeSupport")
 TG_BOT_WORKERS = int(os.environ.get("TG_BOT_WORKERS", "200"))
 #--------------------------------------------
 START_PIC = os.environ.get("START_PIC", "https://graph.org/file/0591ce5558c3ec8fe7612-263292508134daf3e1.jpg")
@@ -40,7 +40,7 @@ FORCE_PIC = os.environ.get("FORCE_PIC", "https://graph.org/file/fdc4357abfaba232
 #--------------------------------------------
 
 #--------------------------------------------
-HELP_TXT = "<b><blockquote>⚡ This is a <u>Private Premium Bot</u> – Only admins & management can operate it.\n🔐 To get the bot link and access its features, join our mentioned channel and click the direct link provided.\n🎯 This bot is exclusively for <b>VIP & special users</b>, giving you instant file access securely and privately!</blockquote></b>\n\n<b>•Join Our Main Channel: @UNRATED_CODER\nFore More Information Use /help</b>"
+HELP_TXT = "<b><blockquote>⚡ This is a <u>Private Premium Bot</u> – Only admins & management can operate it.\n🔐 To get the bot link and access its features, join our mentioned channel and click the direct link provided.\n🎯 This bot is exclusively for <b>VIP & special users</b>, giving you instant file access securely and privately!</blockquote></b>\n\n<b>•Join Our Main Channel: @Zoro_Anime_Zone\nFore More Information Use /help</b>"
 
 # Isko clean kar diya hai taaki line breaks sahi se aayein
 ABOUT_TXT = """<b>🤖 Kaoruko Waguri Bot - About</b>
@@ -50,7 +50,7 @@ ABOUT_TXT = """<b>🤖 Kaoruko Waguri Bot - About</b>
 🔗 Access: Get files directly via special links.
 ⚡ Uptime: Always active for your convenience.
 🌐 Channels: Join to explore more anime content.</blockquote></b>
-<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
+<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/Tobi_Hindi_Anime_Zone">TOBI ANIME</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/Zoro_Anime_Zone">Zoro Anime Zone</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
 #--------------------------------------------
 #--------------------------------------------
 START_MSG = os.environ.get("START_MESSAGE", "<b>💖 Hᴇʟʟᴏ {first}!🥀\n\n<blockquote>I ᴀᴍ Kaoruko Waguri ✨ Your Personal Anime & File Access Bot🚀 I ᴄᴀɴ sᴀᴠᴇ ᴘʀɪᴠᴀᴛᴇ ғɪʟᴇs ɪɴ ᴄʜᴀɴɴᴇʟs🔗 & Gɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇss via a Special Link</blockquote>\n<blockquote>🔰 Check Out Our Channels & Get Files Instantly! 🔰</blockquote></b>")
@@ -74,7 +74,7 @@ CMD_TXT = """<blockquote><b>» ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs:</b></blockqu
 <b>›› /admins :</b> ɢᴇᴛ ʟɪsᴛ ᴏꜰ ᴀᴅᴍɪɴs
 """
 #--------------------------------------------
-CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @UNRATED_CODER</b>") 
+CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", "<b>• ʙʏ @Zoro_Anime_Zone</b>") 
 PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" else False 
 #--------------------------------------------
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
