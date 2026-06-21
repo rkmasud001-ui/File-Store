@@ -7,25 +7,21 @@ from pyrogram.enums import ParseMode
 
 HELP_IMAGE_URL = "https://graph.org/file/927bf2751b931e2496aed-0dbc57797e8526bad4.jpg"
 
-HELP_TEXT = """<b>🥰 Kon’nichiwa USER_MENTION_PLACEHOLDER! ~</b>\n\n
+HELP_TEXT = """<b>🥰 Kon’nichiwa USER_MENTION_PLACEHOLDER! ~</b>\n
 <blockquote expandable><b>⚔️ I’ᴍ ᴀɴ ᴀɴɪᴍᴇ-ᴛʜᴇᴍᴇᴅ ғɪʟᴇ ʙᴏᴛ 🎥\n
-Bᴏʀɴ ɪɴ ᴛʜᴇ ʀᴇᴀʟᴍ ᴏғ ᴅᴀᴛᴀ ᴀɴᴅ ᴄᴏᴅᴇ, I sᴇʀᴠᴇ ᴛᴏ ᴅᴇʟɪᴠᴇʀ sᴘᴇᴄɪᴀʟ ᴀɴɪᴍᴇ ғɪʟᴇs ᴛᴏ ᴛʜᴇ ᴡᴏʀᴛʜʏ ⚡\n\n
+Bᴏʀɴ ɪɴ ᴛʜᴇ ʀᴇᴀʟᴍ ᴏғ ᴅᴀᴛᴀ ᴀɴᴅ ᴄᴏᴅᴇ, I sᴇʀᴠᴇ ᴛᴏ ᴅᴇʟɪᴠᴇʀ sᴘᴇᴄɪᴀʟ ᴀɴɪᴍᴇ ғɪʟᴇs ᴛᴏ ᴛʜᴇ ᴡᴏʀᴛʜʏ ⚡\n
 💮 Tᴏ ᴀᴄᴄᴇss ᴍʏ sᴇᴄʀᴇᴛ ᴀʀᴄʜɪᴠᴇs, ʏᴏᴜ ᴍᴜsᴛ ᴊᴏɪɴ ᴀʟʟ ᴛʜᴇ ᴀʟʟɪᴇᴅ ᴄʜᴀɴɴᴇʟs 🎯\n
-Oɴʟʏ ᴛʜᴇ ᴘᴏʀᴛᴀʟ ᴡɪʟʟ ᴏᴘᴇɴ 🔓\n\n
+Oɴʟʏ ᴛʜᴇ ᴘᴏʀᴛᴀʟ ᴡɪʟʟ ᴏᴘᴇɴ 🔓\n
 🌌 Oɴᴄᴇ ʏᴏᴜ’ʀᴇ ɪɴ, ᴛʜᴇ ғɪʟᴇs ᴡɪʟʟ ʀᴇᴠᴇᴀʟ ᴛʜᴇɪʀ ᴛʀᴜᴛʜ 💫\n
-Aɴɪᴍᴇ sᴘɪʀɪᴛs ᴀʀᴇ ᴡᴀɪᴛɪɴɢ ғᴏʀ ʏᴏᴜ 🌀</b></blockquote>\n\n
-
-<b>🪄 How To Use The Bot?</b>\n\n
+Aɴɪᴍᴇ sᴘɪʀɪᴛs ᴀʀᴇ ᴡᴀɪᴛɪɴɢ ғᴏʀ ʏᴏᴜ 🌀</b></blockquote>\n
+<b>🪄 How To Use The Bot?</b>\n
 <blockquote expandable>
 <b>⚙️ Don’t know how to use this bot? No worries! 😄\n
-Just follow our simple step-by-step tutorial to understand everything easily.</b>\n\n
-👉 <b><a href="https://t.me/AniReal_Updates/107">Click Here To Watch The Tutorial 🎬</a></b>
-</blockquote>
-
+Just follow our simple step-by-step tutorial to understand everything easily.</b>\n
+👉 <b><a href="https://t.me/AniReal_Updates/107">Click Here To Watch The Tutorial 🎬</a></b></blockquote>
 <b>» Users Commands:</b>\n
 <blockquote expandable>‣ <b>/start</b> - Start the bot! 🟢\n
-‣ <b>/help</b> – Summon the help menu 📜</blockquote>\n\n
-
+‣ <b>/help</b> – Summon the help menu 📜</blockquote>\n
 <b>» Admin Commands:</b>\n
 <blockquote expandable>
 <b>›› /dlt_time :</b> Set auto delete time\n
@@ -41,8 +37,7 @@ Just follow our simple step-by-step tutorial to understand everything easily.</b
 <b>›› /pbroadcast :</b> Send photo to all users\n
 <b>›› /add_admin :</b> Add an admin\n
 <b>›› /deladmin :</b> Remove an admin\n
-<b>›› /admins :</b> Get list of admins</blockquote>\n\n
-
+<b>›› /admins :</b> Get list of admins</blockquote>\n
 <b>◈ Need Assistance? Contact my Master through the button below ⚙️</b>"""
 # =====================
 
