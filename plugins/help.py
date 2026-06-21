@@ -74,11 +74,11 @@ async def help_command(client: Client, message: Message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/UNRATED_CODER"),
-                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• ᴏᴡɴᴇʀ", url="https://t.me/Animezone236"),
+                    InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ •", url="https://t.me/ZoroAnimeSupport")
                 ],
                 [
-                    InlineKeyboardButton("• Jᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/UNRATED_CODER")
+                    InlineKeyboardButton("• Jᴏɪɴ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ •", url="https://t.me/Zoro_Anime_Zone")
                 ],
             ]
         ),
