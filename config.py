@@ -50,7 +50,7 @@ ABOUT_TXT = """<b>🤖 Kaoruko Waguri Bot - About</b>
 🔗 Access: Get files directly via special links.
 ⚡ Uptime: Always active for your convenience.
 🌐 Channels: Join to explore more anime content.</blockquote></b>
-<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/Tobi_Hindi_Anime_Zone">TOBI ANIME</a> ◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/Zoro_Anime_Zone">Zoro Anime Zone</a> ◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
+<b><blockquote>◈ ᴄʀᴇᴀᴛᴏʀ: <a href="https://t.me/Animezone236">Nippi</a>\n◈ ꜰᴏᴜɴᴅᴇʀ ᴏꜰ: <a href="https://t.me/Zoro_Anime_Zone">Zoro Anime Zone</a>\n◈ ᴅᴇᴠᴇʟᴏᴘᴇʀ: <a href="https://t.me/UNRATED_CODER">UNRATED CODER</a></blockquote></b>"""
 #--------------------------------------------
 #--------------------------------------------
 START_MSG = os.environ.get("START_MESSAGE", "<b>💖 Hᴇʟʟᴏ {first}!🥀\n\n<blockquote>I ᴀᴍ Kaoruko Waguri ✨ Your Personal Anime & File Access Bot🚀 I ᴄᴀɴ sᴀᴠᴇ ᴘʀɪᴠᴀᴛᴇ ғɪʟᴇs ɪɴ ᴄʜᴀɴɴᴇʟs🔗 & Gɪᴠᴇ ʏᴏᴜ ᴀᴄᴄᴇss via a Special Link</blockquote>\n<blockquote>🔰 Check Out Our Channels & Get Files Instantly! 🔰</blockquote></b>")
