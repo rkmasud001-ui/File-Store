@@ -9,17 +9,17 @@ from logging.handlers import RotatingFileHandler
 #--------------------------------------------
 #Bot token @Botfather
 TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
-APP_ID = int(os.environ.get("APP_ID", "0"))
-API_HASH = os.environ.get("API_HASH", "")
+APP_ID = int(os.environ.get("APP_ID", "30800287"))
+API_HASH = os.environ.get("API_HASH", "6d4de3e85c8b20beccb92439c57aa398")
 #--------------------------------------------
 
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
 OWNER = os.environ.get("OWNER", "")
-OWNER_ID = int(os.environ.get("OWNER_ID", "0"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "8075531485"))
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
 #--------------------------------------------
-DB_URI = os.environ.get("DATABASE_URL", "")
+DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://otakumongo8:otakumongo8@cluster0.kiy5lxh.mongodb.net/?appName=Cluster0")
 
 if not TG_BOT_TOKEN:
     logging.warning("TG_BOT_TOKEN is not set!")
