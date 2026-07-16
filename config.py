@@ -8,13 +8,13 @@ from logging.handlers import RotatingFileHandler
 
 #--------------------------------------------
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "8833304097:AAFaPSbA2NLRrUQA_CkhIifDDwX97t-wskg")
 APP_ID = int(os.environ.get("APP_ID", "30800287"))
 API_HASH = os.environ.get("API_HASH", "6d4de3e85c8b20beccb92439c57aa398")
 #--------------------------------------------
 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "0"))
-OWNER = os.environ.get("OWNER", "")
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1004387448297"))
+OWNER = os.environ.get("OWNER", "Animezone236")
 OWNER_ID = int(os.environ.get("OWNER_ID", "8075531485"))
 #--------------------------------------------
 PORT = os.environ.get("PORT", "8001")
